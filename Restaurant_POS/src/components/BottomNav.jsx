@@ -7,7 +7,7 @@ import { BiSolidDish } from "react-icons/bi";
 
 const BottomNav = () => {
   return (
-    <div className='fixed top-20 left-0 h-full  w-42 bg-[#262626] p-4 flex flex-col justify-around'>
+    <div className='fixed top-20 left-0 h-full  w-30 bg-[#262626] p-4 flex flex-col justify-around'>
       {/* Top Buttons */}
       <div className='flex flex-col gap-4'>
         <button className='flex items-center bg-[#343434] px-4 py-2 rounded-[20px] text-[#f5f5f5]'>

@@ -34,15 +34,15 @@ const Greetings = () => {
   const dateTime = useCurrentTime();
 
   return (
-    <div className='flex justify-between items-center  px-8 mt-5'>
+    <div className='flex justify-between items-center  px-8 mt-3'>
       <div>
-        <h1 className='text-[#f5f5f5] text-2xl  font-semibold tracking-wide'>Good Morning, Desh</h1>
+        <h1 className='text-[#f5f5f5] text-lg  font-semibold tracking-wide'>Good Morning, Desh</h1>
         <p className='text-[#ababab] text-sm '>
           Give your best service for customers 
         </p>
       </div>
       <div>
-        <h1 className="text-2xl font-bold text-[#f5f5f5] tracking-wide mb-1">{formatTime(dateTime)}</h1>
+        <h1 className="text-lg font-bold text-[#f5f5f5] tracking-wide mb-1">{formatTime(dateTime)}</h1>
         <p className="text-sm text-[#ababab] font-medium">{formatDate(dateTime)}</p>
       </div>
     </div>

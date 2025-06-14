@@ -1,5 +1,5 @@
 import React from 'react'
-import { popularDishes } from '../../constants/Index';
+import { popularDishes } from '../../constants/Index'
 
 
 

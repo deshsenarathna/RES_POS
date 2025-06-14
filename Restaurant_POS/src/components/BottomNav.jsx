@@ -1,22 +1,27 @@
-import React from 'react'
+import React, { use } from 'react'
 import { FaHome } from "react-icons/fa";
 import { FaBorderAll } from "react-icons/fa";
 import { MdOutlineTableBar } from "react-icons/md";
 import { CiCircleMore } from "react-icons/ci";
 import { BiSolidDish } from "react-icons/bi";
+import { useNavigate } from 'react-router-dom';
 
 const BottomNav = () => {
+
+  const navigate = useNavigate();
+
   return (
-    <div className='fixed top-20 left-0 h-full  w-30 bg-[#262626] p-4 flex flex-col justify-around'>
+    
+    <div className='flex-1 fixed top-20 left-0 h-full  w-30 bg-[#262626] p-4 flex flex-col justify-around'>
       {/* Top Buttons */}
       <div className='flex flex-col gap-4'>
-        <button className='flex items-center bg-[#343434] px-4 py-2 rounded-[20px] text-[#f5f5f5]'>
+        <button onClick={() => navigate("/")} className='flex items-center bg-[#343434] px-4 py-2 rounded-[20px] text-[#f5f5f5]'>
           <FaHome className='mr-2' size={20} /><p>Home</p>
         </button>
-        <button className='flex items-center px-4 py-2 rounded-[20px] text-[#f5f5f5]'>
+        <button onClick={() => navigate("/orders")} className='flex items-center px-4 py-2 rounded-[20px] text-[#f5f5f5]'>
           <FaBorderAll className='mr-2' size={20}/><p>Orders</p>
         </button>
-        <button className='flex items-center px-4 py-2 rounded-[20px] text-[#f5f5f5]'>
+        <button  onClick={() => navigate("/tables")} className='flex items-center px-4 py-2 rounded-[20px] text-[#f5f5f5]'>
           <MdOutlineTableBar className='mr-2' size={20}/><p>Tables</p>
         </button>
         <button className='flex items-center px-4 py-2 rounded-[20px] text-[#f5f5f5]'>

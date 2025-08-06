@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <section className="bg-[#1f1f1f] h-[calc(100vh-5rem)] overflow-hidden flex gap-2">
       
-      <div className=" p-4 flex flex-col " style={{ minWidth: 100 }}>
+      <div className=" p-4 flex  " style={{ minWidth: 100 }}>
         <BottomNav />
       </div>
       {/* Left Div */}

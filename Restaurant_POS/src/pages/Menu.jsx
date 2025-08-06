@@ -5,6 +5,9 @@ import { useState } from 'react';
 import {FaBell, FaSearch, FaUserCircle} from "react-icons/fa";
 import { IoMdRestaurant } from "react-icons/io";
 import MenuContainer from '../components/menu/MenuContainer';
+import CustomerInfo from '../components/menu/CustomerInfo';
+import CartInfo from '../components/menu/CartInfo';
+import Bill from '../components/menu/Bill';
 
 const Menu = () => {
   return (
@@ -33,8 +36,18 @@ const Menu = () => {
       </div>
 
       {/*Right div*/}
-      <div className='flex-[2] bg-blue-500'>
-              sss
+      <div className='flex-[2] bg-[#23272F] mt-2 ml-3 rounded-lg mb-2'>
+        {/*customer details*/}
+        <CustomerInfo/>
+
+        <hr className='border-[#2D2D2D] border-t-4'/>
+        
+        {/*Cart Info*/}
+        <CartInfo/>
+
+         <hr className='border-[#2D2D2D] border-t-4 mt-20'/>
+        {/*Bill Info*/}
+        <Bill/>
       </div>
     </section>
   )

@@ -43,7 +43,7 @@ const MenuContainer = () => {
         }
     </div>
 
-    <hr className='mt-4'/>
+    <hr className='mt-4 bg-[#2D2D2D]'/>
     <div  className='grid grid-cols-4 gap-4 m-2' >
         {
             selected?.items.map((menu) =>{

@@ -3,8 +3,16 @@ import React, {useState} from 'react'
 import { login } from '../../https/index';
 import { enqueueSnackbar } from 'notistack';
 import {useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../redux/slices/userSlice';
+
+// This component handles the login functionality for the POS system.
+// It allows users to enter their email and password, and upon submission,
+// it sends a request to the backend to authenticate the user.
 
 const Login = () => {
+
+   const dispatch = useDispatch();
 
     const navigate = useNavigate();
     
@@ -28,6 +36,8 @@ const Login = () => {
         onSuccess: (res) => {
             const {data} = res;
             console.log(data);
+            const { _id, name, phone, email, role  } = data.data;
+            dispatch(setUser({_id, name, phone, email, role}));
             navigate('/');
         },
         onError: (err) => {

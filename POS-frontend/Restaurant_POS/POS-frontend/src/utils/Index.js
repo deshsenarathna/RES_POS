@@ -13,3 +13,24 @@ export const getBgColor = () => {
   const color = bgarr[randomBg];
   return color;
 };
+
+export const getAvatarName = (name) => {
+  if (!name) return "";
+  return name.split("").map(word => word[0]).join("").toUpperCase();
+} 
+
+export const formatDate = (date) => {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+};
+
+export const formatTime = (date) => {
+  return date.toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit', // Include seconds
+  });
+};

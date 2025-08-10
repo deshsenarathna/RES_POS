@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 // Format date as "June 9, 2025"
 const formatDate = (date) => {
@@ -31,12 +32,15 @@ const useCurrentTime = () => {
 };
 
 const Greetings = () => {
+
+  const userData = useSelector(state => state.user); // Get user name from Redux store
+
   const dateTime = useCurrentTime();
 
   return (
     <div className='flex justify-between items-center  px-8 mt-3'>
       <div>
-        <h1 className='text-[#f5f5f5] text-lg  font-semibold tracking-wide'>Good Morning, Desh</h1>
+        <h1 className='text-[#f5f5f5] text-lg  font-semibold tracking-wide'>Good Morning, {userData.name}</h1>
         <p className='text-[#ababab] text-sm '>
           Give your best service for customers 
         </p>

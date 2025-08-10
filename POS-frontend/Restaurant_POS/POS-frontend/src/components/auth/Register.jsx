@@ -1,6 +1,11 @@
 import React, {useState} from 'react'
+import { register } from '../../https/index';
+import { enqueueSnackbar } from 'notistack';
+import { useMutation } from '@tanstack/react-query';
 
-const Register = () => {
+
+
+const Register = ({setIsRegister}) => {
 
         const [formData, setFormData] = useState({
             name: "",
@@ -26,9 +31,36 @@ const Register = () => {
 
         const handleSubmit = (e) => {
             e.preventDefault();
-            // Handle form submission logic here
-            console.log(formData);
+            registerMutation.mutate(formData);
         }
+
+        const registerMutation = useMutation({
+        mutationFn: (reqData) => register(reqData),
+        onSuccess: (res) => {
+            const {data} = res;
+            enqueueSnackbar(data.message, {
+                variant: 'Registration successful',
+            });
+            setFormData({
+              name: "",
+              email: "",
+              phone: "",
+              password: "",
+              role: ""
+            });
+
+            setTimeout(() => {
+              setIsRegister(false); // Switch to login after successful registration
+
+            },1500)
+        },
+        onError: (err) => {
+            const {response} = err;
+            enqueueSnackbar(response.data.message, {
+                variant: 'error',
+            });
+        }
+    })
 
 
   return (

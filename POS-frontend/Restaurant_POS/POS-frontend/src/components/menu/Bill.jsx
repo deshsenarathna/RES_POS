@@ -1,11 +1,16 @@
 import React from 'react'
+import { getTotalPrice } from '../../redux/slices/cartSlice'
+import { useSelector } from 'react-redux';
 
 const Bill = () => {
+
+   const getTotal = useSelector(getTotalPrice);
+   const cartData = useSelector((state) => state.cart);
   return (
     <>
-     <div className='flex items-center justify-between px-4 py-3 bg-[#23272F]  mt-2 '>
-        <p className='text-sm text-[#ffffff] font-semibold '>Items(4)</p>
-        <p className='text-sm text-[#ffffff] font-semibold '>RS 3440</p>
+     <div className='flex items-center justify-between px-4 py-3 bg-[#23272F]  '>
+        <p className='text-sm text-[#ffffff] font-semibold '>Items {cartData.length}</p>
+        <p className='text-sm text-[#ffffff] font-semibold '>Rs {getTotal}</p>
      </div>
 
      <div className='flex justify-around text-[#ffffff] font-semibold rounded-lg'>

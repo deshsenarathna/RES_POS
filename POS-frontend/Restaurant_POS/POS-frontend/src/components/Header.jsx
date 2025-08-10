@@ -1,9 +1,37 @@
-import React from 'react';
+import React, { use } from 'react';
 import Logo from "../assets/Images/Logo.png";
 import {FaBell, FaSearch, FaUserCircle} from "react-icons/fa";
-//import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { IoLogOut } from "react-icons/io5";
+import { useMutation } from '@tanstack/react-query';
+import { logout } from '../https/index'; 
+import { useDispatch } from 'react-redux';
+import { removeUser } from '../redux/slices/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+
+  const userData = useSelector(state => state.user); //automaticaly render data from redux store
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logoutMutation = useMutation({
+
+    mutationFn: () => logout(),
+    onSuccess: (data) => {
+      console.log(data);
+      dispatch(removeUser());
+      navigate('/auth');
+    },
+    onError: (err) => {
+      console.log(err);
+    }
+
+  })
+
+  const handleLogOut = () => {
+    logoutMutation.mutate();
+  }
   
 
   //const userData = useSelector(state => state.user)
@@ -32,9 +60,13 @@ const Header = () => {
         <div className='flex items-center gap-3 cursor-pointer'>
             <FaUserCircle className='text-[#f5f5f5] text-4xl'/>
             <div className='flex flex-col items-start'>
-               <h1 className= 'text-md text-[#f5f5f5] font-semibold'>desh</h1>
-               <p className= 'text-xs text-[#ababab]'>admin</p>
+               <h1 className= 'text-md text-[#f5f5f5] font-semibold'>{userData.name}</h1>
+               <p className= 'text-xs text-[#ababab]'>{userData.role || "role"}</p>
             </div>
+
+            <button>
+              <IoLogOut onClick={handleLogOut} className='text-[#f5f5f5]' size={35} />
+            </button>
         </div>
       </div>
     </header>

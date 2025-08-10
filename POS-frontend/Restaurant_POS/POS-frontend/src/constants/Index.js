@@ -358,7 +358,7 @@ export const salads = [
 
 
 
-  export const menus = [
+  export const items = [
   { id: 1, name: "Starters", bgColor: "#A62A2A" ,icon: "🍲", items: startersItem },
   { id: 2, name: "Main Course", bgColor: "#2887D0" ,icon: "🍛", items: mainCourse },
   { id: 3, name: "Beverages", bgColor: "#8FCFFF" ,icon: "🍹", items: beverages },

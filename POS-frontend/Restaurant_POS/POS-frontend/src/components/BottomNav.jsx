@@ -7,6 +7,8 @@ import { BiSolidDish } from "react-icons/bi";
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import Modal from './Shared/Modal';
+import { useDispatch } from 'react-redux';
+import { setCustomer } from '../redux/slices/customerSlice';
 
 const BottomNav = () => {
 
@@ -17,6 +19,7 @@ const BottomNav = () => {
   const [guestCount, setGuestCount] = useState(0);
   const [name, setName] = useState();
   const [phone, setPhone] = useState();
+  const dispatch = useDispatch();
 
   const handleCreateOrder = () => {
     dispatch(setCustomer({name, phone, guests: guestCount}));
@@ -34,6 +37,8 @@ const BottomNav = () => {
   }
       const location = useLocation();
       const isActive = (path) => location.pathname === path;
+
+
   return (
     
     <div className='flex-1 fixed top-20 left-0 h-full  w-30 bg-[#262626] p-4 flex flex-col justify-around'>
@@ -82,7 +87,7 @@ const BottomNav = () => {
             <button onClick={increment} className="text-yellow-500 text-2xl">&#43;</button>
           </div>
         </div>
-        <button onClick={()=>navigate("/tables")} className="w-full bg-[#F6B100] text-[#f5f5f5] rounded-lg py-3 mt-8 hover:bg-yellow-700">
+        <button onClick={handleCreateOrder} className="w-full bg-[#F6B100] text-[#f5f5f5] rounded-lg py-3 mt-8 hover:bg-yellow-700">
           Create Order
         </button>
       </Modal>

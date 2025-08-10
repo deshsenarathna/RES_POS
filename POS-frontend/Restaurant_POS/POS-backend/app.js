@@ -8,14 +8,20 @@ const createHttpError = require('http-errors');
 const app = express();
 const router = require('./routes/userRoute');
 const cookieParser = require('cookie-parser');
+const  cors = require("cors");
 
 const PORT = config.PORT;
 
 connectDb();
 
 // Middleware
+app.use(cors({
+    credentials:true,
+    origin:['http://localhost:5173']
+}));
 app.use(express.json());
 app.use(cookieParser());
+
 
 app.get('/', (req, res) => {
 

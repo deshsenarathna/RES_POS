@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { updateTable } from '../../redux/slices/customerSlice';
 
-const TableCard = ({key, name, status, initials}) => {
+const TableCard = ({key, name, status, initials,seats}) => {
 
 
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const TableCard = ({key, name, status, initials}) => {
       <div className='flex items-center justify-center mt-2 mb-2'>
         <h1 className={` ${getBgColor()} rounded-full p-3 text-[#f5f5f5]`}>{initials}</h1>
       </div>
-      
+      <p className="text-[#ababab] text-xs">Seats: <span className="text-[#f5f5f5]">{seats}</span></p>
     </div>
   )
 }

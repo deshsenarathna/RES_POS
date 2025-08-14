@@ -8,6 +8,7 @@ import { logout } from '../https/index';
 import { useDispatch } from 'react-redux';
 import { removeUser } from '../redux/slices/userSlice';
 import { useNavigate } from 'react-router-dom';
+import { AiFillDashboard } from "react-icons/ai";
 
 const Header = () => {
 
@@ -54,6 +55,13 @@ const Header = () => {
       </div>
 
       <div className='flex items-center gap-4'>
+        {
+          userData.role === "admin" && (
+            <div className='bg-[#1f1f1f] rounded-[15px] p-1 cursor-pointer'>
+            <AiFillDashboard onClick={() =>navigate('/dashboard')} className='text-[#f5f5f5] text-2xl'/>
+        </div>
+          )
+        }
         <div className='bg-[#1f1f1f] rounded-[15px] p-3 cursor-pointer'>
             <FaBell className='text-[#f5f5f5] text-2xl'/>
         </div>

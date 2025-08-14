@@ -2,9 +2,10 @@ import React from 'react'
 import { FaCheckDouble } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
 
-const OrderCard = () => {
+const OrderCard = ({order}) => {
+  console.log(order);
   return (
-    <div className='w-[325px] bg-[#23272f] p-3 rounded-lg'>
+    <div className='w-[325px] h-[150px] bg-[#23272f] p-3 rounded-lg'>
            <div className='flex items-center gap-6  mb-2'>
               <button className='bg-[#f6b100] p-3 text-sm font-bold rounded-lg'>A1</button>
               <div className='flex justify-between items-center w-[100%]'>

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation} from "react-router
 import { Home, Auth, Orders, Tables, Menu } from "./pages";
 import Header from "./components/Header";
 import BottomNav from "./components/BottomNav";
+import Dashboard from "./pages/Dashboard";
 
 
 function Layout() {
@@ -15,6 +16,7 @@ function Layout() {
         <Routes>
            <Route path="/" element={<Home/>}/>
            <Route path="/auth" element={<Auth/>}/>
+           <Route path="/dashboard" element={<Dashboard/>}/>
            <Route path="/orders" element={<Orders/>}/>
            <Route path="/tables" element={<Tables/>}/>
            <Route path="/menu" element={<Menu/>}/>

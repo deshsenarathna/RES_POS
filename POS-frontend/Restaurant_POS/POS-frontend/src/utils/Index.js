@@ -16,8 +16,14 @@ export const getBgColor = () => {
 
 export const getAvatarName = (name) => {
   if (!name) return "";
-  return name.split("").map(word => word[0]).join("").toUpperCase();
-} 
+  return name
+    .split(" ")              // split by spaces into words
+    .filter(word => word)    // remove empty strings if there are extra spaces
+    .map(word => word[0])    // take the first character of each word
+    .join("")                // join them together
+    .toUpperCase();          // make uppercase
+};
+
 
 export const formatDate = (date) => {
   return date.toLocaleDateString('en-US', {
@@ -34,3 +40,20 @@ export const formatTime = (date) => {
     second: '2-digit', // Include seconds
   });
 };
+
+export const formatDateAndTime = (date) => {
+  const dateAndTime = new Date(date).toLocaleString('en-US', {
+    month: 'long',
+    day: '2-digit',
+    year: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+    timeZone: 'Asia/Colombo'
+  });
+
+  return dateAndTime;
+};
+
+

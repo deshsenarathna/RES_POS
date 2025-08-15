@@ -22,3 +22,5 @@ export const logout = () => api.post('/api/user/logout');
 
 export const addOrder = (data) => api.post('/api/order', data);
 export const getOrders = () => api.get('/api/order');
+
+export const addTable = (data) => api.post('/api/table', data);

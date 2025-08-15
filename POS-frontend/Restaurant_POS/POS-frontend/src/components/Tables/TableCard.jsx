@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaCheckDouble } from "react-icons/fa";
-import { getBgColor } from '../../utils/Index';
+import { getAvatarName, getBgColor } from '../../utils/Index';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { updateTable } from '../../redux/slices/customerSlice';
@@ -22,7 +22,7 @@ const TableCard = ({key, name, status, initials,seats}) => {
         <p className={`${status==="Booked" ?"text-green-600 bg-[#2e4a40]": "text-[#f6b100] bg-yellow-200"} rounded-lg px-2 text-sm`}>{status}</p> 
       </div>
       <div className='flex items-center justify-center mt-2 mb-2'>
-        <h1 className={` ${getBgColor()} rounded-full p-3 text-[#f5f5f5]`}>{initials}</h1>
+        <h1 className={` ${getBgColor()} rounded-full p-3 text-[#f5f5f5]`}>{getAvatarName(initials) || "N/A"}</h1>
       </div>
       <p className="text-[#ababab] text-xs">Seats: <span className="text-[#f5f5f5]">{seats}</span></p>
     </div>

@@ -2,12 +2,30 @@ import {useState} from 'react'
 import BottomNav from '../components/BottomNav'
 import BackButton from '../components/Shared/BackButton'
 import TableCard from '../components/Tables/TableCard'
-import { tables } from '../constants/Index'
+import { keepPreviousData, useQuery } from '@tanstack/react-query'
+import {getTables} from '../https/index'
+import { enqueueSnackbar } from 'notistack'
+
 
 
 
 const Tables = () => {
+   //get data from databse
     const [status, setStatus] = useState("all");
+
+    const {data: resData,isError} = useQuery({
+        queryKey: ['tables'],
+        queryFn: async () => {
+          return await getTables();
+        },
+        placeholderData: keepPreviousData,
+    })
+    if(isError) {
+      enqueueSnackbar("Error fetching tables", { variant: "error" });
+    }
+
+    console.log(resData);
+
   return (
     <section className='bg-[#1f1f1f]  h-[calc(100vh-5rem)] overflow-hidden px-7 ml-[8rem] ' >
       <div className='flex items-center justify-between  py-4'>
@@ -27,9 +45,13 @@ const Tables = () => {
          </div>
           <div className='flex flex-wrap gap-4 px-16 py-4 justify-between'>
             {
-                tables.map((table) => {
+                resData?.data.data.map((table) => {
                     return(
-                        <TableCard key={table.id} name={table.name} status={table.status} initials={table.initial}/>
+                        <TableCard key={table._id} 
+                                   name={table.tableNo} 
+                                   seats={table.seats}
+                                   status={table.status} 
+                                   initials={table?.currentOrder?.customerDetails.name} />
                     )
                  })
             }

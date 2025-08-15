@@ -2,7 +2,7 @@ const Order = require('../models/orderModel');
 const createHttpError = require('http-errors');
 const mongoose = require('mongoose');
 
-const addOrder = async (req, res) => {
+const addOrder = async (req, res,next) => {
     try{
         const order = new Order(req.body);
         await order.save();

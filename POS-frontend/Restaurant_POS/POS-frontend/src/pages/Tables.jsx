@@ -47,7 +47,7 @@ const Tables = () => {
             {
                 resData?.data.data.map((table) => {
                     return(
-                        <TableCard key={table._id} 
+                        <TableCard id={table._id} 
                                    name={table.tableNo} 
                                    seats={table.seats}
                                    status={table.status} 

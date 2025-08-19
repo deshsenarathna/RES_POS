@@ -6,13 +6,13 @@ import { popularDishes } from '../../constants/Index'
 const PopularDishes = () => {
   return (
     <div className='px-4 mt-4 '>
-      <div className='text-[#f5f5f5] w-full h-[calc(100vh-6.5rem)] bg-[#23272f] rounded-lg '>
+      <div className='mb-2 text-[#f5f5f5] w-full h-[calc(100vh-6.5rem)] bg-[#23272f] rounded-lg '>
         <div className='flex justify-between items-center px-6 py-4'>
            <h1 className='text-[#f5f5f5] text-lg font-semibold tracking-wide'>Popular Dishes</h1>
            <a href="" className='text-[#025cca] text-sm font-semibold'>View All</a>
         </div>
 
-       <div className='overflow-y-scroll h-[calc(100vh-6.5rem)] scrollbar-hide'>
+       <div className='mb-2 overflow-y-scroll h-[calc(100vh-6.5rem)] scrollbar-hide'>
         {
           popularDishes.map((dish) => (
             <div key={dish.id} className='flex items-center gap-4 px-6 py-4 border-b mt-4 mx-6 border-[#3c3f47]'>

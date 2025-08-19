@@ -4,7 +4,9 @@ import { FaCircle } from "react-icons/fa";
 import { formatDateAndTime, getAvatarName } from '../../utils/Index';
 
 const OrderCard = ({key,order}) => {
+
   console.log(order);
+
   return (
     <div className='w-[380px] h-[160px] bg-[#23272f] p-3 rounded-lg'>
            <div className='flex items-center gap-6  mb-2'>
@@ -14,8 +16,9 @@ const OrderCard = ({key,order}) => {
             <div>
              <h1 className='text-[#f5f5f5] text-lg font-semibold'>{order.customerDetails.name}</h1>
              <p className='text-[#ababab] text-sm'>
-              #{String(new Date(order.orderDate).getTime() % 1000).padStart(3, '0')}/Dine In
+              #{String(parseInt(order._id.slice(-6), 16) % 1000 ).padStart(3, '0')}/Dine In
             </p>
+            <p>Table</p>
 
 
            </div>

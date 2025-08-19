@@ -11,6 +11,9 @@ const cartSlice = createSlice({
         },
         removeItem: (state, action) => {
             return state.filter(item => item.id != action.payload);
+        },
+        removeAllItems: (state) => {
+            return [];
         }
 
     }
@@ -18,5 +21,5 @@ const cartSlice = createSlice({
 
 
 export const getTotalPrice = (state) => state.cart.reduce((total, item) => total + item.price, 0);
-export const { addItem, removeItem } = cartSlice.actions;
+export const { addItem, removeItem, removeAllItems } = cartSlice.actions;
 export default cartSlice.reducer;

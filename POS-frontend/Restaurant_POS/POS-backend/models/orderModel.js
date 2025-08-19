@@ -21,6 +21,7 @@ const orderSchema = new mongoose.Schema({
         
     },
     items: [],
+    
     table: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Table',
@@ -28,7 +29,12 @@ const orderSchema = new mongoose.Schema({
     },
     paymentData: {
         
+    },
+
+    paymentMethod: {
+        
     }
+
 },{
     timestamps: true
 });
